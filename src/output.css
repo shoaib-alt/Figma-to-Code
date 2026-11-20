@@ -1,4 +1,5 @@
 /*! tailwindcss v4.3.5 | MIT License | https://tailwindcss.com */
+@layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -7,10 +8,9 @@
       "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-amber-400: oklch(82.8% 0.189 84.429);
-    --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
-    --font-weight-bold: 700;
+    --font-weight-medium: 500;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -191,6 +191,9 @@
   .mx-auto {
     margin-inline: auto;
   }
+  .flex {
+    display: flex;
+  }
   .grid {
     display: grid;
   }
@@ -200,7 +203,52 @@
   .gap-\[30px\] {
     gap: 30px;
   }
+  .gap-\[48px\] {
+    gap: 48px;
+  }
   .py-\[48px\] {
     padding-block: 48px;
+  }
+}
+@layer components {
+  .navlink {
+    font-size: 18px;
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+    color: #000000;
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    --tw-duration: 150ms;
+    transition-duration: 150ms;
+    --tw-ease: linear;
+    transition-timing-function: linear;
+    &:hover {
+      @media (hover: hover) {
+        color: #FF6600;
+      }
+    }
+  }
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: block))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-font-weight: initial;
+      --tw-duration: initial;
+      --tw-ease: initial;
+    }
   }
 }

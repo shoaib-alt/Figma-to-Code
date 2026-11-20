@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+
+
+@layer components {
+
+    .navlink{
+
+        @apply text-[#000000] font-medium text-[18px] hover:text-[#FF6600] ease-linear duration-150 transition-all whitespace-nowrap;
+
+    }
+}
